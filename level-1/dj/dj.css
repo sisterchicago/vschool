@@ -1,0 +1,11 @@
+.square{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    width: 350px;
+    height: 350px;
+    background-color: cornsilk;
+    border: 2px solid black;
+    margin-top: 100px;
+}

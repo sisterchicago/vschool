@@ -1,0 +1,29 @@
+body{
+    text-align: center;
+}
+#addition{
+    background-color: aqua;
+    padding: 50px;
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#subtraction{
+    background-color: purple;
+    padding: 50px;
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#multiplication{
+    background-color: yellow;
+    padding: 50px;
+    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}

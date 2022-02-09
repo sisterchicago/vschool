@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="travel.css" rel="stylesheet">
+    <title>Travel Form</title>
+</head>
+<body>
+    <h1>Travel Form</h1>
+    <form name="travelForm">
+        <label>First Name: </label>
+        <input type="text" name="firstName" />
+        <br>
+        <label>Last Name: </label>
+        <input type="text" name="lastName" />
+        <br>
+        <label>Age: </label>
+        <input type="number" name="age" />
+        <br>
+        <label>Male: </label>
+        <input type="radio" name="gender" value="male" />
+        <br>
+        <label>Female: </label>
+        <input type="radio" name="gender" value="female" />
+        <br>
+        <label>Intersex: </label>
+        <input type="radio" name="gender" value="intersex" />
+        <br>
+        <br>
+        <label>Traveling to: </label>
+        <select name="city">
+            <option value="chicago">Chicago</option>
+            <option value="newYork">New York</option>
+            <option value="seattle">Seattle</option>
+        </select>
+        <br>
+        <br>
+        <label>Dietary needs: </label>
+        <br>
+        <label>Vegetarian </label>
+        <input type="checkbox" value="veggie" name="diet" />
+        <br>
+        <label>Gluten Free </label>
+        <input type="checkbox" value="gf" name="diet" />
+        <br>
+        <label>Kosher </label>
+        <input type="checkbox" value="kosher" name="diet" />
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1><button><b>Submit</b></button></h1>
+    </form>
+
+
+    <script src="travel.js"></script>
+</body>
+</html>

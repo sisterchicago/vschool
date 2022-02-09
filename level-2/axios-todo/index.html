@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="stylesheet">
+    <title>Calendar</title>
+</head>
+<body>
+    <div class="bg" id="header">
+        <h1>My Calendar</h1>
+        <form name="todoForm" action="" id="todoForm">
+            <input type="text" name="title" placeholder="Title" required />
+            <input
+                type="text"
+                name="description"
+                placeholder="Description"
+                required
+            />
+            <input type="number" name="time" placeholder="Time" required />
+            <input type="text" name="imgUrl" placeholder="Image URL" required />
+            <button id="addButton">Add</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div id="todoList"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

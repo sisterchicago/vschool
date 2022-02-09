@@ -1,0 +1,37 @@
+body{
+    margin: 15px;
+    text-align: center;
+}
+header{
+    background-image: url("castle.jpeg");
+    height: 15rem;
+    color: red;
+    height: 15rem;
+    display: flex;
+    align-items: flex-end;
+}
+h1{
+   
+   font-size: 3rem;
+   text-shadow: 2px 2px black;
+   margin: 3px;
+}
+.goom{
+    
+}
+.bob{
+   
+}
+h2{
+    text-decoration: underline;
+}
+label{
+    font-weight: bold;
+}
+button{
+    font-weight: bold;
+}
+footer{
+    font-weight: bold;
+    text-align: center;
+}

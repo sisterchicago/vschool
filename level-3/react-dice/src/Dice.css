@@ -1,0 +1,14 @@
+.dice {
+    width:  200px;
+    height: 200px;
+    border: 1px solid #000;
+    display: inline-block;
+}
+
+.num {
+    margin-left: 75px;
+}
+
+.button {
+    margin-left: 50px;
+}

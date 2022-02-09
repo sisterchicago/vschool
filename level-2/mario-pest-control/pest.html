@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="pest.css" rel="stylesheet">
+    <title>Mario Pest Control</title>
+</head>
+<body>
+    <header>
+    <h1>Mario Pest Control</h1>
+    </header>
+        
+        <form name="baddies">
+           <div name="goom">
+                <h2>Goombas</h2>
+                <h3>5 coins</h3><img src="gIcon.png">
+                <br>
+                <br>
+                <label>Enter total Goombas caught here:</label>
+                <br>
+                <br>
+                <input type="number" name="numOfGooms" min="0" />
+            </div> 
+            <br>
+            <br>
+
+            <div name="bob">
+                <h2>Bob-ombs</h2>
+                <h3>7 coins</h3><img src="bob.png">
+                <br>
+                <br>
+                <label>Enter total Bob-ombs caught here:</label>
+                <br>
+                <br>
+                <input type="number" name="numOfBobs" min="0" />
+            </div>
+            <br>
+            <br>
+       
+            <div name="cheep">
+                <h2>Cheep-cheeps</h2>
+                <h3>11 coins</h3><img src="cheep.png">
+                <br>
+                <br>
+                <label>Enter total Cheep-cheeps caught here:</label>
+                <br>
+                <br>
+                <input type="number" name="numOfCheeps" min="0" />
+            </div>
+            <br>
+            <br>
+
+            <button>submit</button>
+
+            <div id="results">
+                <br>
+                <h2>Balance Due:</h2>
+            </div>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+    <hr>    
+    <footer>
+        <h2>Contact Us</h2>
+        <p>mariopestcontrol.com</p>
+        <p>mario@mariopestcontrol.com</p>
+        <p>569 Peach Way, Castleton, NY 10627</p>
+        <p>&copy; 2021</p>
+    </footer>    
+    <script src="pest.js"></script>
+</body>
+</html>

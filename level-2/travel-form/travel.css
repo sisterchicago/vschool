@@ -1,0 +1,14 @@
+body{
+    background-image: url("plane.jpeg");
+    font-weight: bold;
+    line-height: 2rem;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+label {
+    display: inline-block;
+    width:100px;
+    text-align: right;
+}

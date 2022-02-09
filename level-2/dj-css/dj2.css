@@ -1,0 +1,103 @@
+div {
+    display: inline-block;
+}
+
+h1{
+    text-align: center;
+}
+
+#box1 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: red;
+    transition: background-color 5s linear, width 5s linear, height 5s linear;
+}
+
+#box1:hover {
+    background-color: skyblue;
+    width: 300px;
+    height: 300px;
+}
+
+#box2 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: orange;
+    transition: box-shadow 0.6s linear, background-color 3s linear;
+    
+}
+
+#box2:hover {
+    box-shadow: 0px 0px 0px 10px #FC5185;
+    margin: 0.5em;
+    background-color: black;
+}
+
+#box3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: yellow;
+    transition: border 2s linear, opacity 1.5s linear;
+}
+
+#box3:hover {
+    border: 3px dotted black;
+    opacity: 0.3;
+
+}
+
+#box4 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: green;
+    transition: border 2s linear, width 2s linear, height 2s linear, background-image 2s linear;
+}
+
+#box4:hover {
+    border: 3px dashed red;
+    width: 300px;
+    height: 235px;
+    background-image: url("xmas.png");
+}
+
+#box5 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: blue;
+    transition: border 2s linear, background 2s linear;
+}
+
+#box5:hover {
+    border: 5px mixed black;
+    background: repeating-linear-gradient(
+        45deg,
+        #606dbc,
+        #606dbc 10px,
+        #465298 10px,
+        #465298 20px
+    );
+}
+
+#box6 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: purple;
+    transition: border 2s linear, background 2s linear;
+}
+
+#box6:hover {
+    border: 3px double black;
+    background: repeating-radial-gradient(
+        circle,
+        purple,
+        purple 10px,
+        #4b026f 10px, 
+        #4b026f 20px
+      );
+}

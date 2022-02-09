@@ -1,0 +1,73 @@
+{
+    "menu": [
+        {
+            "appetizers": [
+                {
+                    "name": "Stuffed Mushrooms",
+                    "ingredients": ["mushrooms", "butter", "garlic", "breadcrumbs", "salt", "pepper", "parmesan", "cream cheese", "parsley", "thyme"],
+                    "description": ["Try our mouth watering Stuffed Mushrooms!"]
+                    },
+                {
+                    "name": "Blooming Onion",
+                    "ingredients": ["onion", "milk", "eggs", "flour", "paprika", "cumin", "oregano", "thyme", "salt", "cayenne pepper", "black pepper", "garlic powder"],
+                    "description": ["Our Blooming Onion can't be beat!"]
+                }
+            ]
+        },
+        {
+           "cold sandwiches": [
+               {
+                   "name": "BLT",
+                   "ingredients": ["bacon", "lettuce", "tomato", "bread", "mayo"],
+                   "description": ["The BLT is such a treat!"]
+               },
+               {
+                   "name": "Pulled Pork",
+                   "ingredients": ["pork loin", "white roll", "Sweet Baby Ray's BBQ Sauce"],
+                   "description": ["Nothing tastier than our Pulled Pork!"]
+               }
+           ] 
+        },
+        {
+            "hot sandwiches": [
+                {
+                    "name": "French Dip",
+                    "ingredients": ["roast beef", "french rolls", "french onion soup", "swiss cheese"],
+                    "description": ["Dip your taste buds into comfort food!"]
+                },
+                {
+                    "name": "Meatball Subs",
+                    "ingredients": ["submarine buns", "garlic powder", "meatballs", "marinara sauce", "mozzarella cheese"]
+                }
+            ]
+        },
+        {
+            "desserts": [
+                {
+                    "name": "Rice Krispie Treats",
+                    "ingredients": ["rice krispies", "mini marshmallows", "butter"],
+                    "description": ["Dig into your childhood memories with our Rice Krispie Treats!"]
+                },
+                {
+                    "name": "Pumpkin Chocholate Chip Cookies",
+                    "ingredients": ["sugar", "pumpkin puree", "vegetable oil", "eggs", "milk", "vanilla", "flour", "baking powder", "baking soda", "cinnamon", "salt", "semisweet chocolate chips"],
+                    "description": ["Traditional hometown taste, just like grandma used to bake!"]
+                }
+            ]
+        },
+        {
+            "drinks": [
+                {
+                    "name": "Orange Julius",
+                    "ingredients": ["frozen orange juice concentrate", "ice cubes", "vanilla extract", "sugar"],
+                    "description": ["The best frozen drink you'll ever have!"]
+                },
+                {
+                    "name": "Water",
+                    "ingredients": ["high quality H2O"],
+                    "description": ["So good, the 'Water Boy' recommends it!"]
+                }
+            ]
+        }
+    ]
+}   

@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+}
+
+.friend-card {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    color: white;
+    background-image: linear-gradient(to bottom right, rgb(115, 80, 124), rgb(210, 170, 211));
+    border-style: solid;
+    border-width: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    margin: 20px;
+    width: 500px;
+    height: 300px;
+  
+}
+
+.pet-card {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    color: white;
+    justify-content: right;
+}
