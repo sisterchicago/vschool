@@ -1,0 +1,93 @@
+{
+    "data": "tree3",
+    "children": [
+      {
+        "data": "tree3.a",
+        "children": []
+      },
+      {
+        "data": "tree3.b",
+        "children": [
+          {
+            "data": "tree3.b.a",
+            "children": []
+          },
+          {
+            "data": "tree3.b.b",
+            "children": []
+          },
+          {
+            "data": "tree3.b.c",
+            "children": [
+              {
+                "data": "tree3.b.c.a",
+                "children": []
+              },
+              {
+                "data": "tree3.b.c.b",
+                "children": [
+                  {
+                    "data": "tree3.b.c.b.a",
+                    "children": [
+                      {
+                        "data": "tree3.b.c.b.a.a",
+                        "children": []
+                      },
+                      {
+                        "data": "tree3.b.c.b.a.b",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": "tree3.c",
+        "children": [
+          {
+            "data": "tree3.c.a",
+            "children": []
+          },
+          {
+            "data": "tree3.c.b",
+            "children": []
+          },
+          {
+            "data": "tree3.c.c",
+            "children": [
+              {
+                "data": "tree3.c.c.a",
+                "children": []
+              },
+              {
+                "data": "tree3.c.c.b",
+                "children": [
+                  {
+                    "data": "tree3.c.c.b.a",
+                    "children": [
+                      {
+                        "data": "tree3.c.c.b.a.a",
+                        "children": []
+                      },
+                      {
+                        "data": "tree3.c.c.b.a.b",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": "tree3.d",
+        "children": []
+      }
+    ]
+  }

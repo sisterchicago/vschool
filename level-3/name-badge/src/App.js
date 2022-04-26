@@ -62,6 +62,7 @@ class App extends Component {
                           >
                           </input>
                         </label>
+                        <br/>
                         <label className="label">Last Name:
                           <input
                               type="text"
@@ -105,6 +106,7 @@ class App extends Component {
                           >
                           </input>
                         </label>
+                        <br/>
                         <label className="label">Phone Number:
                           <input
                               type="phone"
@@ -127,6 +129,7 @@ class App extends Component {
                         </label>
                         <br></br>
                         <label className="label">About You:
+                        <br/>
                           <textarea
                               name="aboutYou"
                               value={this.state.inputs.aboutYou}

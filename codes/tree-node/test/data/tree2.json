@@ -1,0 +1,126 @@
+{
+    "data": "tree2",
+    "children": [
+      {
+        "data": "tree2.a",
+        "children": []
+      },
+      {
+        "data": "tree2.b",
+        "children": [
+          {
+            "data": "tree2.a.a",
+            "children": []
+          },
+          {
+            "data": "tree2.a.b",
+            "children": []
+          },
+          {
+            "data": "tree2.a.c",
+            "children": [
+              {
+                "data": "tree2.a.c.a",
+                "children": []
+              },
+              {
+                "data": "tree2.a.c.b",
+                "children": [
+                  {
+                    "data": "tree2.a.c.b.a",
+                    "children": [
+                      {
+                        "data": "tree2.a.c.b.a.a",
+                        "children": []
+                      },
+                      {
+                        "data": "tree2.a.c.b.a.b",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": "tree2.b",
+        "children": [
+          {
+            "data": "tree2.b.a",
+            "children": []
+          },
+          {
+            "data": "tree2.b.b",
+            "children": []
+          },
+          {
+            "data": "tree2.b.c",
+            "children": [
+              {
+                "data": "tree2.b.c.a",
+                "children": []
+              },
+              {
+                "data": "tree2.b.c.b",
+                "children": [
+                  {
+                    "data": "tree2.b.c.b.a",
+                    "children": [
+                      {
+                        "data": "tree2.b.c.b.a.a",
+                        "children": []
+                      },
+                      {
+                        "data": "tree2.b.c.b.a.b",
+                        "children": [
+                          {
+                            "data": "tree2.b.c.b.a.b.a",
+                            "children": [
+                              {
+                                "data": "tree2.b.c.b.a.b.a.a",
+                                "children": []
+                              },
+                              {
+                                "data": "tree2.b.c.b.a.b.a.b",
+                                "children": [
+                                  {
+                                    "data": "tree2.b.c.b.a.b.a.b.a",
+                                    "children": [
+                                      {
+                                        "data": "tree2.b.c.b.a.b.a.b.a.a",
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "data": "tree2.b.c.b.a.b.b",
+                            "children": [
+                              {
+                                "data": "tree2.b.c.b.a.b.b.a",
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "data": "tree2.c",
+        "children": []
+      }
+    ]
+  }
