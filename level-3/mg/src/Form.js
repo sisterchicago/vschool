@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import MemeList from './MemeList'
+import Meme from './Meme'
 import axios from 'axios'
 
 export default function Form() {
@@ -15,7 +15,7 @@ export default function Form() {
             .then(res => setAllMemeImages(res.data.data.memes))
             .catch(err => console.error(err))
     }, [meme])
-    const [allMemeImages, setAllMemeImages] = useState()
+    const [allMemeImages, setAllMemeImages] = useState([])
     const handleChange = (e) => {
         const {name, value} = e.target
         setMeme(prevMeme => {
@@ -44,14 +44,35 @@ export default function Form() {
     const handleDeleteFromList = (id) => {
         setMemeList(memeList.filter(meme => meme.id !== id))
     }
-    const handleEditList = (id) => {
+
+    const changeToggleEdit = () => {
         setToggleEdit(prevToggle => !prevToggle)
-        const result = memeList.find(meme => meme.id === id)
     }
+
+    const handleEditList = (id, updatedItem) => {
+        console.log("handleEditList was called updates to be made: ", updatedItem)
+        // const result = memeList.find(meme => meme.id === id)
+        setToggleEdit(prevToggle => !prevToggle)
+        setMemeList(prevState => {
+            return prevState.map(meme => {
+                if (meme.id === id) 
+                    return { 
+                        ...meme,
+                        topText: updatedItem.topText,
+                        bottomText: updatedItem.bottomText
+                    }
+                else 
+                    return meme
+            })
+        })
+    }
+
 
     const handleEditChange = (e) => {
         const {name, value, parentElement} = e.target
         const {id} = parentElement
+
+        
         setMemeList(prevState => {
             const specificMeme = prevState.find(meme => meme.id === id)
             specificMeme[name] = value
@@ -64,13 +85,14 @@ export default function Form() {
     }
 
     const listOfMemes = memeList.map(meme => (
-        <MemeList 
+        <Meme 
             key={meme.id}
             {...meme}
             handleDeleteFromList={handleDeleteFromList}
             handleEditList={handleEditList}
             toggleEdit={toggleEdit}
             handleEditChange={handleEditChange}
+            changeToggleEdit={changeToggleEdit}
         />
     ))
     const styles = {

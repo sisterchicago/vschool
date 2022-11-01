@@ -1,0 +1,28 @@
+div, button { 
+  padding: 5px 10px; 
+  margin: 5px 0px; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button { 
+  border: none; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+div, h5 {
+  text-align: center;
+}
+
+.light-theme {
+  background-color: #cfcfcf;
+  color: #000;
+}
+
+.dark-theme {
+  background-color: #3a3b3c;
+  color: #fff; 
+}
