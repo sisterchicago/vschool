@@ -43,7 +43,7 @@ export default function App() {
         } else {
             axios.get(`/movies/search/genre?genre=${e.target.value}`)
                 .then(res => setMovies(res.data))
-                .catch(res => console.log(err))
+                .catch(err => console.log(err))
         }
     }
 

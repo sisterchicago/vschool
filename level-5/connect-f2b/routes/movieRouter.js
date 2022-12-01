@@ -82,6 +82,7 @@ movieRouter.delete("/:movieId", (req, res, next) => {
     //res.send("Successfully deleted movie")
 })
 
+//Update One
 movieRouter.put("/:movieId", (req, res, next) => {
     Movie.findOneAndUpdate(
         { _id: req.params.movieId }, //find this one to update
@@ -97,8 +98,9 @@ movieRouter.put("/:movieId", (req, res, next) => {
     )
     //const movieId = req.params.movieId
     //const movieIndex = movies.findIndex(movie => movie._id === movieId)
-    //const updateMovie = Object.assign(movies[movieIndex], req.body)
-    //res.status(201).send(updateMovie)
+    //const updatedMovie = Object.assign(movies[movieIndex], req.body)
+    //res.send(updatedMovie)
+    //res.status(201).send(updatedMovie)
 })
 
 
