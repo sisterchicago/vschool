@@ -11,14 +11,13 @@ export default function AddBountyForm(props) {
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e) {
-        const { name, value, type } = e.target 
-        setInputs(prevInputs => ({...prevInputs, [name]: value}))
+        const { name, value, type, checked } = e.target
+        setInputs(prevInputs => ({...prevInputs, [name]: type === "checkbox" ? checked : value}))
     }
 
     function handleSubmit(e) {
         e.preventDefault()
         props.submit(inputs, props._id)
-        //props.addBounty(inputs) //double check
         setInputs(initInputs)
     }
 
