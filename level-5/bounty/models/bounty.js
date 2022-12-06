@@ -2,13 +2,33 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const bountySchema = new Schema({
+    // name: {
+    //     type: String,
+    //     required: true
+    // },
+    // age: {
+    //     type: Number,
+    //     required: true
+    // }
     name: {
         type: String,
         required: true
     },
-    age: {
+    lastName: {
+        type: String,
+        required: true
+    },
+    living: {
+        type: Boolean,
+        required: true
+    },
+    bountyAmount: {
         type: Number,
         required: true
+    },
+    id: {
+        type: String,
+        enum: ['Sith', 'Jedi']
     }
 })
 

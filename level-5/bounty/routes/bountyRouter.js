@@ -27,14 +27,21 @@ bountyRouter.get("/:bountyId", (req, res, next) => {
 })
 
 bountyRouter.get("/search/type", (req, res, next) => {
-    const type = req.query.type 
-    if(!type) {
-        const error = new Error("Type must be provided")
-        res.status(500)
-        return next(error)
-    }
-    const filteredBounties = bounties.filter(bounty => bounty.type === type)
-    res.status(200).send(filteredBounties)
+    Bounty.find({ type: req.query.type }, (err, bounties) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(bounties)
+    })
+    // const type = req.query.type 
+    // if(!type) {
+    //     const error = new Error("Type must be provided")
+    //     res.status(500)
+    //     return next(error)
+    // }
+    // const filteredBounties = bounties.filter(bounty => bounty.type === type)
+    // res.status(200).send(filteredBounties)
 })
 
 bountyRouter.post("/", (req, res, next) => {
@@ -54,7 +61,7 @@ bountyRouter.delete("/:bountyId", (req, res, next) => {
             res.status(500)
             return next(err)
         }
-        return res.status(200).send(`Successfully deleted item${deletedItem.name} from the database`)
+        return res.status(200).send(`Successfully deleted item${deletedItem.firstName} from the database`)
    })
 })
 

@@ -11,10 +11,12 @@ const bountySchema = new Schema({
         required: true
     },
     living: {
-        type: Boolean
+        type: Boolean,
+        required: true
     },
     bounty: {
-        type: Number
+        type: Number,
+        required: true
     },
     type: {
         type: String,
