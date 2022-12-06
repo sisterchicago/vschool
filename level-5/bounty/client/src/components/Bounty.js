@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AddBountyForm from './AddBountyForm'
 
 export default function Bounty(props) {
-    const { name, lastName, _id, living, id, type, bountyAmount } = props
+    const { name, lastName, _id, living, force, type, bountyAmount } = props
     const [editToggle, setEditToggle] = useState(false)
     console.log(props)
     return (
@@ -11,7 +11,7 @@ export default function Bounty(props) {
                 <>
                     <h1>Name: { name } { lastName }</h1>
                     <p>Living: { String(living) }</p>
-                    <p>Type: { type }</p>
+                    <p>Force: { force }</p>
                     <p>Bounty: { bountyAmount }</p>
                     <button 
                         className='delete-btn'
@@ -32,7 +32,7 @@ export default function Bounty(props) {
                         name={name}
                         lastName={lastName}
                         living={living}
-                        id={id}
+                        force={force}
                         type={type}
                         bountyAmount={bountyAmount}
                         _id={_id}
