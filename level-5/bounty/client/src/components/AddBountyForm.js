@@ -5,14 +5,14 @@ export default function AddBountyForm(props) {
         name: props.name || "", 
         lastName: props.lastName || "", 
         living: true, 
-        type: "", 
+        type: props.type || "", 
         bountyAmount: 0 
     }
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e) {
-        const { name, value, type, checked } = e.target 
-        setInputs(prevInputs => ({...prevInputs, [name]: type === "checkbox" ? checked : value }))
+        const { name, value, type } = e.target 
+        setInputs(prevInputs => ({...prevInputs, [name]: value}))
     }
 
     function handleSubmit(e) {
@@ -53,18 +53,22 @@ export default function AddBountyForm(props) {
                 <option value="true">True</option>
                 <option value="false">False</option>
             </select> */}
-            <input
+            {/* <input
                 type="text"
                 name="type"
                 value={inputs.type}
                 onChange={handleChange}
                 placeholder="Sith or Jedi"
-            />
-            {/* <select onChange={handleChange}>
+            /> */}
+            <select 
+                value={inputs.type} 
+                onChange={handleChange}
+                name="type"
+            >
                 <option>- Type -</option>
                 <option value="jedi">Jedi</option>
                 <option value="sith">Sith</option>
-            </select> */}
+            </select>
             <input
                 type="number"
                 name="bountyAmount"
