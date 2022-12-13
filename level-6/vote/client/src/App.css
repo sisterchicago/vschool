@@ -39,14 +39,6 @@
     cursor: not-allowed;
   }
   
-  /* input {
-    border: none;
-    border-radius: 5px;
-    padding: .2rem;
-    margin: .5rem;
-    width: 80%;
-  } */
-  
   textarea {
     font-family: Arial, Helvetica, sans-serif;
     border: none;
@@ -91,9 +83,11 @@
     align-items: center;
     background-color: rgb(191, 208, 248);
   }
+
   .nav > * {
     padding: 2rem;
   }
+  
   .auth-box {
     display: flex;
     flex-direction: column;
@@ -117,7 +111,6 @@
   .post-form {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     background-color: rgb(191, 208, 248);
     padding: 1rem;
     border-radius: 10px;
@@ -126,7 +119,7 @@
     max-width: 650px;
     align-items: flex-start;
   }
-  /* Post Styles */
+ 
   .post-content {
     max-width: 600px;
     width: 90%;
@@ -155,7 +148,7 @@
     align-items: center;
     justify-content: center;
   }
-  /* Vote Styles */
+ 
   .vote-box {
     display: flex;
     flex-direction: row;
@@ -186,7 +179,7 @@
   .nay {
     background-color: red;
   }
-  /* Comment Styles */
+  
   .comment-box {
     display: flex;
     flex-wrap: wrap;

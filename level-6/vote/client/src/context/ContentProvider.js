@@ -1,14 +1,14 @@
-import React, { useReducer, useContext, useState } from "react";
-import axios from "axios";
+import React, { useReducer, useContext, useState } from 'react'
+import axios from 'axios'
 
-export const ContentContext = React.createContext();
-const contentAxios = axios.create();
+export const ContentContext = React.createContext()
+const contentAxios = axios.create()
 
 contentAxios.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
+  const token = localStorage.getItem("token")
+  config.headers.Authorization = `Bearer ${token}`
+  return config
+})
 
 export default function ContentProvider(props) {
 
@@ -31,55 +31,55 @@ export default function ContentProvider(props) {
     ],
     message: "",
     edit: false
-  };
+  }
 
-  const [state, dispatch] = useReducer(contentReducer, initState);
+  const [state, dispatch] = useReducer(contentReducer, initState)
 
   const [singlePost, setSinglePost] = useState()
 
   function contentReducer(state, action) {
     let newState;
-    const prevPosts = [...state.posts];
+    const prevPosts = [...state.posts]
     switch (action.type) {
       case "getPosts":
         newState = {
           ...state,
           posts: action.value,
           order: action.order
-        };
-        break;
+        }
+        break
       case "appendPosts":
         newState = {
           ...state,
           posts: [...state.posts, action.value],
-        };
-        break;
+        }
+        break
       case "removePost":
         newState = {
           ...state,
           posts: action.value,
-        };
-        break;
+        }
+        break
       case "updatePosts":
         const updatedPostIndex = prevPosts.findIndex(
           (post) => post._id === action.value._id
-        );
-        prevPosts[updatedPostIndex] = action.value;
+        )
+        prevPosts[updatedPostIndex] = action.value
         newState = {
           ...state,
           posts: prevPosts,
-        };
+        }
         break
       case "edit":
         newState = {
           ...state,
           edit: true
         }
-        break;
+        break
       default:
-        throw new Error();
+        throw new Error()
     }
-    return newState;
+    return newState
   }
 
 
@@ -96,10 +96,9 @@ export default function ContentProvider(props) {
     contentAxios
       .get("/api/post/")
       .then((res) => {
-        dispatch({ type: "getPosts", value: res.data});
-        //clean this up so we're not overwriting state
+        dispatch({ type: "getPosts", value: res.data})
       })
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => console.log(err.response.data.errMsg))
     }
 
   function addPost(newPost) {
@@ -107,9 +106,9 @@ export default function ContentProvider(props) {
     contentAxios
       .post("/api/post", newPost)
       .then((res) => {
-        dispatch({ type: "appendPosts", value: res.data });
+        dispatch({ type: "appendPosts", value: res.data })
       })
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => console.log(err.response.data.errMsg))
   }
 
 
@@ -117,59 +116,57 @@ export default function ContentProvider(props) {
     contentAxios
       .delete(`/api/post/${postId}`)
       .then((res) => {
-        const freshPosts = state.posts.filter((post) => post._id != postId);
-        console.log(freshPosts);
-        dispatch({ type: "removePost", value: freshPosts });
+        const freshPosts = state.posts.filter((post) => post._id != postId)
+        console.log(freshPosts)
+        dispatch({ type: "removePost", value: freshPosts })
       })
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => console.log(err.response.data.errMsg))
   }
 
-  // //TODO getComments()
-  // //TODO postComment()
 
   function editPost(postId, editedPost) {
     contentAxios
       .put(`/api/post/${postId}`, editedPost)
       .then((res) => {
-        dispatch({ type: "updatePosts", value: res.data });
+        dispatch({ type: "updatePosts", value: res.data })
       })
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => console.log(err.response.data.errMsg))
   }
 
   function upvotePost(postId, voteStatus) {
     contentAxios
       .put(`/api/post/upvote/${postId}`)
       .then((res) => {
-        dispatch({ type: "updatePosts", value: res.data });
+        dispatch({ type: "updatePosts", value: res.data })
       })
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => console.log(err.response.data.errMsg))
   }
 
   function downvotePost(postId, voteStatus) {
     contentAxios
       .put(`/api/post/downvote/${postId}`)
       .then((res) => {
-        dispatch({ type: "updatePosts", value: res.data });
+        dispatch({ type: "updatePosts", value: res.data })
       })
-      .catch((err) => console.log(err.response.data.errMsg));
+      .catch((err) => console.log(err.response.data.errMsg))
   }
 
   function removeUpvote(postId, voteStatus) {
     contentAxios
       .put(`/api/post/removeUpvote/${postId}`)
       .then((res) => {
-        dispatch({ type: "updatePosts", value: res.data });
+        dispatch({ type: "updatePosts", value: res.data })
       })
-      .catch((err) => console.log(err.reponse.data.errMsg));
+      .catch((err) => console.log(err.reponse.data.errMsg))
   }
 
   function removeDownvote(postId, voteStatus) {
     contentAxios
       .put(`/api/post/removeDownvote/${postId}`)
       .then((res) => {
-        dispatch({ type: "updatePosts", value: res.data });
+        dispatch({ type: "updatePosts", value: res.data })
       })
-      .catch((err) => console.log(err.reponse.data.errMsg));
+      .catch((err) => console.log(err.reponse.data.errMsg))
   }
 
   function addComment(newComment, postId){
@@ -200,7 +197,6 @@ export default function ContentProvider(props) {
         state,
         dispatch,
         getUserPosts,
-        // ...userContent,
         getAllPosts,
         addPost,
         deletePost,
@@ -217,5 +213,5 @@ export default function ContentProvider(props) {
     >
       {props.children}
     </ContentContext.Provider>
-  );
+  )
 }

@@ -4,7 +4,16 @@ import { ContentContext } from "../context/ContentProvider"
 import { Link } from 'react-router-dom'
 
 export default function Vote(props){
-  const { upvotePost, downvotePost, removeUpvote, removeDownvote, state, singlePost, setSinglePost} = useContext(ContentContext)
+  const { 
+    upvotePost, 
+    downvotePost, 
+    removeUpvote, 
+    removeDownvote, 
+    state, 
+    singlePost, 
+    setSinglePost
+  } = useContext(ContentContext)
+
   const { postId, index, voteStatus, comments} = props 
 
   function handleSinglePost(postId){
@@ -18,34 +27,41 @@ export default function Vote(props){
     <div className="vote-box">
       <button 
         className={
-          voteStatus == "yea" 
-          ? "yea"
+          voteStatus == "like" 
+          ? "like"
           : "neutral"
         }
         onClick={
-          voteStatus == "yea"
+          voteStatus == "like"
           ? ()=>removeUpvote(postId, voteStatus)
           : ()=>upvotePost(postId, voteStatus)
         }
-        >{singlePost?.upvotes?.length} Yea</button>
+        >
+          {singlePost?.upvotes?.length} 
+            Like
+      </button>
       <button 
-      className={
-        voteStatus == 'nay' 
-        ? "nay"
-        : "neutral"
-      }
+        className={
+          voteStatus == 'dislike' 
+          ? "dislike"
+          : "neutral"
+        }
         onClick={
-          voteStatus == 'nay'
+          voteStatus == 'dislike'
           ? ()=>removeDownvote(postId, voteStatus)
           : ()=>downvotePost(postId, voteStatus)
         }
-        >{singlePost?.downvotes?.length} Nay</button>
-        <h5>{comments.length} Comments</h5>
-        {location.pathname != '/single-post' && <Link to='/single-post'>
-          <button
-            onClick={()=>handleSinglePost(postId)}
-          >Add Comment</button>
-        </Link>}
+      >
+        {singlePost?.downvotes?.length} 
+          Dislike
+      </button>
+      <h5>{comments.length} Comments</h5>
+
+        {location.pathname != '/single-post' && 
+          <Link to='/single-post'>
+          <button onClick={()=>handleSinglePost(postId)}>Add Comment</button>
+          </Link>
+        }
     </div>
   )
 
@@ -53,34 +69,38 @@ export default function Vote(props){
     <div className="vote-box">
       <button 
         className={
-          voteStatus == "yea" 
-          ? "yea"
+          voteStatus == "like" 
+          ? "like"
           : "neutral"
         }
         onClick={
-          voteStatus == "yea"
+          voteStatus == "like"
           ? ()=>removeUpvote(postId, voteStatus)
           : ()=>upvotePost(postId, voteStatus)
         }
-        >{state.posts[index]?.upvotes?.length} Yea</button>
+        >
+          {state.posts[index]?.upvotes?.length} 
+            Like
+      </button>
       <button 
-      className={
-        voteStatus == 'nay' 
-        ? "nay"
-        : "neutral"
-      }
+        className={
+          voteStatus == 'dislike' 
+          ? "dislike"
+          : "neutral"
+        }
         onClick={
-          voteStatus == 'nay'
+          voteStatus == 'dislike'
           ? ()=>removeDownvote(postId, voteStatus)
           : ()=>downvotePost(postId, voteStatus)
         }
-        >{state.posts[index]?.downvotes?.length} Nay</button>
+      >
+        {state.posts[index]?.downvotes?.length} 
+          Dislike
+      </button>
         <Link to='/single-post' className='link-element' >
           <div className="vote-box-comments" onClick={()=>handleSinglePost(postId)}>
             <h5>{comments.length} Comments</h5>
-            <button
-              onClick={()=>handleSinglePost(postId)}
-            >Add Comment</button>
+            <button onClick={()=>handleSinglePost(postId)}>Add Comment</button>
           </div>
         </Link>
     </div>

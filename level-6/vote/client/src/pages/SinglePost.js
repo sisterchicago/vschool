@@ -6,7 +6,6 @@ import CommentBox from '../components/CommentBox'
 
 export default function SinglePost(props){
   const { singlePost } = useContext(ContentContext)
-  console.log( singlePost)
 
   return(
     <div className="single-post">

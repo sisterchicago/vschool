@@ -9,7 +9,6 @@ import Vote from './Vote'
 
 export default function Post(props){
   const { title, imgUrl, description, user: postUser, _id: postId, upvotes, downvotes, index, comments } = props
-  // const userId = localStorage.getItem("user")
   const { user: loggedInUser } = useContext(UserContext)
   const { deletePost, state, dispatch, setSinglePost, singlePost } = useContext(ContentContext)
   const [voteStatus, setVoteStatus] = useState("neutral")
@@ -17,9 +16,9 @@ export default function Post(props){
   
   useEffect(()=>{
     if (upvotes?.includes(loggedInUser._id)){
-      setVoteStatus("yea")
+      setVoteStatus("like")
     } else if (downvotes?.includes(loggedInUser._id)){
-      setVoteStatus("nay")
+      setVoteStatus("dislike")
     } else {
       setVoteStatus("neutral")
     }
@@ -61,8 +60,16 @@ export default function Post(props){
       userPost
       : otherPost
       }
-      <Vote postId={postId} key={postId} upvotes={upvotes} downvotes={downvotes} index={index} voteStatus={voteStatus} setVoteStatus={setVoteStatus} comments={comments}/>
+      <Vote 
+        postId={postId} 
+        key={postId} 
+        upvotes={upvotes} 
+        downvotes={downvotes} 
+        index={index} 
+        voteStatus={voteStatus} 
+        setVoteStatus={setVoteStatus} 
+        comments={comments}
+      />
     </div>
-
   )
 }

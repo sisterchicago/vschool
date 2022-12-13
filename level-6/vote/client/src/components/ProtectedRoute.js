@@ -2,10 +2,9 @@ import React from 'react'
 
 import { Navigate } from 'react-router-dom'
 
-function ProtectedRoute(props){
+export default function ProtectedRoute(props){
   const { token, redirectTo, children } = props
 
-  return token ? children : <Navigate to={redirectTo}/>
-}
+  return token ? children : <Navigate to={redirectTo} />
 
-export default ProtectedRoute
+}

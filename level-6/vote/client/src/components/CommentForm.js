@@ -66,7 +66,7 @@ export default function CommentForm(props) {
       >
         <div className="header">
           <div className="user">
-            <span>Commenting as {state.user.username}</span>
+            <span>{state.user.username} replied: </span>
           </div>
         </div>
         <textarea

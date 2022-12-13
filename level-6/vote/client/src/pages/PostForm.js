@@ -53,7 +53,8 @@ export default function PostForm(props){
           name="title" 
           value={title} 
           onChange={handleChange} 
-          placeholder="Title"/>
+          placeholder="Title"
+        />
         <input
           type="text" 
           name="description" 
@@ -61,13 +62,14 @@ export default function PostForm(props){
           onChange={handleChange} 
           placeholder="Content"
           className="post-content"
-          />
+        />
         <input 
           type="text" 
           name="imgUrl" 
           value={imgUrl} 
           onChange={handleChange} 
-          placeholder="Image Url"/>
+          placeholder="Image Url"
+        />
         <button>Submit</button>
       </form>
     </div>

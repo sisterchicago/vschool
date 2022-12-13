@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import Post from "./Post";
-import { ContentContext } from "../context/ContentProvider";
+import React, { useContext, useEffect, useState } from 'react'
+import Post from './Post'
+import { ContentContext } from '../context/ContentProvider'
 
 export default function PostList(props) {
-  const { state } = useContext(ContentContext);
+  const { state } = useContext(ContentContext)
 
   function compareNumbers(a, b) {
     const totalA = a.upvotes.length - a.downvotes.length
@@ -21,16 +21,11 @@ export default function PostList(props) {
     }
   }
 
-  // const [sortedPosts, setSortedPosts] = useState(state.posts)
-  // useEffect(() => {
-  //   setSortedPosts([...state.posts]?.sort(compareNumbers))
-  // }, [])
-
   return (
     <div>
       {state.posts?.map((post, index) => (
         <Post {...post} key={post._id} id={post._id} index={index} />
       ))}
     </div>
-  );
-};
+  )
+}
