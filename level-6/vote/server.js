@@ -7,7 +7,6 @@ const { expressjwt } = require('express-jwt')
 
 app.use(express.json())
 app.use(morgan('dev'))
-app.disable('etag');
 
 mongoose.connect(
   'mongodb://localhost:27017/vote',

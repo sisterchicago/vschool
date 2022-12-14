@@ -1,0 +1,245 @@
+.App {
+    /* background-color: azure; */
+    background-image: url("./components/images/vote.jpg");
+    background-size:cover;
+    /* background-position: center; */
+    height: 230vh;
+    width: 100vw;
+  }
+  
+  nav {
+    background-color: rgb(24, 24, 24);
+    height: 2.2rem;
+    display: flex;
+    justify-content: space-around;
+    padding: .5rem;
+    /* margin-bottom: 2rem; */
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: aliceblue;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .profile {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    padding: .5rem;
+    background-color: rgba(240, 248, 255, 0.724);
+    height: 3rem;
+  }
+  
+  .issue h2 {
+    color: black;
+    text-decoration: none;
+  }
+  
+  h2 {
+    text-decoration: underline;
+    color: aliceblue;
+  }
+  
+  .authForm,
+  .issueForm,
+  .comment,
+  .issue {
+    background-color: aliceblue;
+  }
+  
+  .public {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .issue {
+    margin: 1rem auto;
+    width: 50%;
+    height: max-content;
+  }
+  
+  .issueTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .issueTitle button {
+    border-radius: 3px;
+    padding: 3px;
+  }
+  
+  .vote-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  
+  .vote-container p {
+    width: 2rem;
+    line-height: 2rem;
+  }
+  
+  .vote-container div {
+    display: flex;
+    gap: 3px;
+  }
+  
+  .vote-container div button {
+    width: 3rem;
+    border-radius: .5rem;
+    /* border: none; */
+  }
+  
+  .auth {
+    text-align: center;
+    height: 100vh;
+  }
+  
+  .auth> p {
+    text-shadow:
+          -1px -1px 0 rgb(42, 42, 42),
+          1px -1px 0 rgb(42, 42, 42),
+          -1px 1px 0 rgb(42, 42, 42),
+          1px 1px 0 rgb(42, 42, 42);
+    color: rgb(229, 229, 229);
+    font-size: 1.7rem;
+  }
+  
+  .authForm {
+    margin: 2rem auto 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    text-align: center;
+    padding: 3rem;
+    border: 2px black solid;
+    border-radius: 1rem;
+  }
+  
+  .authForm input {
+    margin-bottom: 1rem;
+  }
+  .authForm> p{
+    margin-top: 1rem;
+  }
+  .auth>p {
+    text-decoration: underline;
+  }
+  
+  .userDescription {
+    border: 1px rgb(198, 193, 193) solid;
+    margin: 1rem 0;
+    padding: .5rem;
+    border-radius: 3px;
+  }
+  
+  .comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0 0;
+    padding: 1rem 1rem 1rem;
+    border-bottom: 1px rgb(212, 212, 212) solid;
+  }
+  
+  .comment>p {
+    font-weight: bold;
+  }
+  .commentInput > p:first-of-type {
+    font-weight: bolder;
+  }
+  
+  .comment button {
+    height: 2rem;
+  }
+  
+  .commentInput {
+    display: flex;
+    padding-bottom: 2rem;
+  }
+  
+  .commentForm {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    height: 3rem;
+  }
+  
+  .commentForm textarea {
+    width: 80%;
+  }
+  
+  .commentForm button {
+    border-radius: 3px;
+  }
+  
+  .issueForm {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin: 2rem auto 1rem;
+    border: 2px black solid;
+    border-radius: .5rem;
+    padding: 2rem 2.5rem;
+    gap: 1rem;
+  }
+  
+  .profile > h2 {
+    margin: 1rem 0;
+    text-shadow:
+    -1px -1px 0 rgb(42, 42, 42),
+    1px -1px 0 rgb(42, 42, 42),
+    -1px 1px 0 rgb(42, 42, 42),
+    1px 1px 0 rgb(42, 42, 42);
+  }
+  
+  .public .issueList {
+    margin-top: 1rem;
+  }
+  
+  .issueList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 0rem;
+    gap: 1rem;
+    margin: 0;
+  }
+  
+  .issue {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* width: calc(100%); */
+    border-radius: .5rem;
+    gap: .5rem;
+    padding: 1rem;
+    border: black 2px solid;
+  }
+  
+  .issue img {
+    width: 100%;
+  }
+  
+  .issue .username {
+    color: red;
+    text-align: right;
+    padding-right: 2.5rem;
+  }
+  
+  
+  
+  .commentList > h2 {
+    margin-top: .5rem;
+  }
