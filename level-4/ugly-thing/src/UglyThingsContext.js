@@ -8,7 +8,7 @@ function UglyThingsContextProvider(props) {
     const [data, setData] = useState([])
 
     function handleChange(e, shouldEdit) {
-        shouldEdit?setEditInputData({...inputData, [e.target.name]: e.target.value})
+        shouldEdit?setEditInputData({...editInputData, [e.target.name]: e.target.value})
         : setInputData({...inputData, [e.target.name]: e.target.value})
     }
 
