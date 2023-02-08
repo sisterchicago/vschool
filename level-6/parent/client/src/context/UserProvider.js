@@ -234,7 +234,8 @@ export default function UserProvider(props) {
                 userErr,
                 setUserErr,
                 sortByVotes
-            }}>
+            }}
+        >
             {props.children}
         </UserContext.Provider>
     )

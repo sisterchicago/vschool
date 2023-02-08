@@ -67,23 +67,23 @@ issueRouter.put("/:issueId", (req, res, next) => {
 })
 
 // UP VOTE
-// issueRouter.put("/upvote/:issueId", (req, res, next) => {
-//   Issue.findOneAndUpdate(
-//     { _id: req.params.issueId },
-//     {
-//       $inc: { votes: 1 },
-//       $push: { votedUsers: req.user._id }
-//     },
-//     { new: true },
-//     (err, updatedIssue) => {
-//       if (err) {
-//         res.status(500)
-//         return next(err)
-//       }
-//       return res.status(201).send(updatedIssue)
-//     }
-//   )
-// })
+issueRouter.put("/upvote/:issueId", (req, res, next) => {
+  Issue.findOneAndUpdate(
+    { _id: req.params.issueId },
+    {
+      $inc: { votes: 1 },
+      $push: { votedUsers: req.user._id }
+    },
+    { new: true },
+    (err, updatedIssue) => {
+      if (err) {
+        res.status(500)
+        return next(err)
+      }
+      return res.status(201).send(updatedIssue)
+    }
+  )
+})
 
 // DOWN VOTE
 issueRouter.put("/downvote/:issueId", (req, res, next) => {

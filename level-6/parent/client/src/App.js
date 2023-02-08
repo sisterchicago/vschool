@@ -35,7 +35,7 @@ export default function App() {
                 <Public />
               </ProtectedRoute>
             }
-        />
+          />
       </Routes>
     </div>
   )

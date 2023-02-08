@@ -2,16 +2,17 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const issueSchema = new Schema({
-    title: {
+    issue: {
         type: String,
         required: true 
     },
     description: {
-        type: String
-    },
-    username: {
         type: String,
-        required: true 
+        required: true
+    },
+    imgUrl: {
+        type: String,
+        required: false
     },
     timestamp: {
         type: Date,
@@ -22,8 +23,9 @@ const issueSchema = new Schema({
         ref: "User",
         required: true 
     },
-    comments: {
-        type: [Object]
+    starred: {
+        type: Boolean,
+        default: false
     }
 })
 

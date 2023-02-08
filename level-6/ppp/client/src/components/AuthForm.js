@@ -9,11 +9,11 @@ export default function AuthForm(props) {
         inputs: {
             username,
             password
-        }
+        }, setShowModal,
     } = props
 
     return(
-        <form className='authForm' onSubmit={handleSubmit}>
+        <form className='auth-form' onSubmit={handleSubmit}>
             <input
                 type='text'
                 value={username}
@@ -22,13 +22,16 @@ export default function AuthForm(props) {
                 placeholder='Username'
             />
             <input
-                type='text'
+                type='password'
                 value={password}
                 name='password'
                 onChange={handleChange}
                 placeholder='Password'
             />
-            <button>{ btnText }</button>
+            <div className='button-box'>
+                <button>{ btnText }</button>
+                <button onClick={() => setShowModal(false)}>Cancel</button>
+            </div>
             <p style={{ color: 'red' }}>{ errMsg }</p>
         </form>
     )

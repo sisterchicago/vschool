@@ -1,14 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import logo from '../components/images/logo.jpeg'
 
-export default function Nav(props) {
-    const { token, logout } = props 
+export default function Nav() {
 
     return(
-        <nav>
-            <Link to="/profile">Profile</Link>
-            <Link to="/public">Public</Link>
-            <button onClick={logout}>Logout</button>
-        </nav>
+        <img src={logo} alt='logo' className='logo' />
     )
 }

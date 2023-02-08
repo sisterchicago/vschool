@@ -6,17 +6,24 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
-        lowercase: true,
         unique: true 
     },
     password: {
         type: String,
         required: true
     },
+    memberSince: {
+        type: Date,
+        default: Date.now
+    },
     isAdmin: {
         type: Boolean,
         default: false
-    }
+    },
+    issues: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Issue'
+    }]
 })
 
 //pre-saved hook to encrypt user password on signup

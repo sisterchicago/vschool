@@ -1,60 +1,74 @@
-import React, { useState } from 'react'
-import CommentList from './CommentList'
-import CommentForm from './CommentForm'
+import React, { useContext, useState } from 'react'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { IssueContext } from '../context/IssueProvider'
 
 export default function Issue(props) {
-    const {
-        title, 
-        description,
-        _id,
-        username,
-        comments,
-        deleteComment,
-        deleteIssue,
-        page,
-        userErr,
-        setUserErr
-    } = props
+  const {
+    issue,
+    description,
+    imgUrl,
+    id: issueId
+  } = props
+  
+  const { deleteIssue, state, dispatch, handleSingleIssue } =
+    useContext(IssueContext)
+  
+  const [userControls, setUserControls] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation().pathname
 
-    const [addComment, setAddComment] = useState(false)
-    const [isError, setIsError] = useState(false)
+  function toggleControls() {
+    setUserControls((prev) => !prev)
+  }
 
-    function deleteButton() {
-        if(page === 'profile') {
-            return <button className='deleteIssueBtn' onClick={() => deleteIssue(_id)}>Delete</button>
-        } else { return null }
-    }
+  const showUserControls = (
+    <div className="edit-delete-box">
+      <button onClick={() => handleEdit(issueId)}>Edit</button>
+      <button onClick={() => deleteIssue(issueId)}>Delete</button>
+      <span onClick={toggleControls}>X</span>
+    </div>
+  )
 
-    function displayError(id) {
-        if(id === _id) {
-            setIsError(!isError)
-            setTimeout(() => { return (setIsError(false))}, 2000)
-        } else { return null }
-    }
+  function handleEdit(issueId) {
+    let currentIssue = state.issues.find((issue) => issue._id === issueId)
+    dispatch({ type: "setSingleIssue", value: currentIssue })
+    dispatch({ type: "edit" })
+    navigate(`/edit-issue`)
+  }
 
-    return(
-        <div className='issue'>
-            <div>
-                <div className='issueTitle'>
-                    <h2>{title}</h2>
-                    {deleteButton}
-                </div>
-                <div className='userDescription'>
-                    <p>{description}</p>
-                    <p className='username'>- {username}</p>
-                </div>
-                <div>
-                    <button onClick={() => { setAddComment(!addComment) }}>✚ 💬</button>
-                </div>
-                {isError && userErr}
-            </div>
-            <CommentList
-                comments={comments}
-                _id={_id}
-                page={page}
-                deleteComment={deleteComment}
-            />
-            {addComment && <CommentForm _id={_id} setAddComment={setAddComment} />}
+  return (
+    <div className='issue' key={issueId}>
+      <div className='issue-upper'>
+        <Link
+          to={`/single-issue/${issueId}`}
+          className='link-element issue-upper'
+        >
+          <div
+            className='issue-intro'
+            onClick={() => handleSingleIssue(issueId)}
+          >
+            <h5 className='issue-title'>{issue}</h5>
+          </div>
+        </Link>
+        <div>
+            {showUserControls}
         </div>
-    )
+      </div>
+      <div className='issue-content'>
+        {imgUrl && (
+          <Link to={`/single-issue/${issueId}`} className='link-element'>
+            <img
+              src={imgUrl}
+              alt={issue}
+              className='issueImg'
+              onClick={() => handleSingleIssue(issueId)}
+            />
+          </Link>
+        )}
+        {location === `/single-issue/${issueId}` && (
+          <p className='issue-description'>{description}</p>
+        )}
+      </div>
+    </div>
+  )
 }

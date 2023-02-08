@@ -21,15 +21,6 @@ export default function UserProvider(props) {
     }
 
     const [userState, setUserState] = useState(initState)
-    const [issueList, setIssueList] = useState()
-    const [page, setPage] = useState("")
-    const [userErr, setUserErr] = useState("")
-
-    function getAllIssues() {
-        userAxios.get("/api/issue")
-            .then(res => setIssueList(res.data))
-            .catch(err => console.log(err))
-    }
 
     function signup(credentials) {
         axios.post("/auth/signup", credentials)
@@ -37,7 +28,6 @@ export default function UserProvider(props) {
                 const { user, token } = res.data
                 localStorage.setItem('token', token)
                 localStorage.setItem('user', JSON.stringify(user))
-                getAllIssues()
                 setUserState(prevUserState => ({
                     ...prevUserState,
                     user,
@@ -53,8 +43,6 @@ export default function UserProvider(props) {
                 const { user, token } = res.data 
                 localStorage.setItem('token', token)
                 localStorage.setItem('user', JSON.stringify(user))
-                getAllIssues()
-                getUserIssues()
                 setUserState(prevUserState => ({
                     ...prevUserState,
                     user,
@@ -82,77 +70,10 @@ export default function UserProvider(props) {
     }
 
     function resetAuthErr() {
-        setUserState(prevState => ({
-            ...prevState,
+        setUserState(prevUserState => ({
+            ...prevUserState,
             errMsg: ""
         }))
-    }
-
-    function getUserIssues() {
-        userAxios.get("/api/issue/user")
-            .then(res => {
-                setUserState(prevUserState => ({
-                    ...prevUserState,
-                    issues: res.data
-                }))
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    }
-
-    function addIssue(newIssue) {
-        userAxios.post("/api/issue", newIssue)
-            .then(res => {
-                setUserState(prevUserState => ({
-                    ...prevUserState,
-                    issues: [...prevUserState.issues, res.data]
-                }))
-                getAllIssues()
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    }
-
-    function deleteIssue(issueId) {
-        userAxios.delete(`/api/issue/${issueId}`)
-            .then(res => {
-                setIssueList(prevIssueList => prevIssueList.filter(issue => issue._id !== issueId))
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    }
-
-    function addComment(commentIssue, issueId) {
-        userAxios.put(`/api/issue/addcomment/${issueId}`, commentIssue)
-            .then(res => {
-                const updateCommentsArr = issueList.map(issue => {
-                    if(issueId === issue._id) {
-                        issue.comments.push(commentIssue)
-                        return issue
-                    } else {
-                        return issue
-                    }
-                })
-                setIssueList(
-                    updateCommentsArr
-                )
-            })
-            .catch(err => console.log(err))
-    }
-
-    function deleteComment(comments, issueId) {
-        userAxios.put(`/api/issue/deletecomment/${issueId}`, comments)
-            .then(res => {
-                const updateCommentsArr = issueList.map(issue => {
-                    if(issueId === issue._id) {
-                        issue = res.data
-                        return issue 
-                    } else {
-                        return issue 
-                    }
-                })
-                setIssueList(
-                    updateCommentsArr 
-                )
-            })
-            .catch(err => console.log(err))
     }
 
     return(
@@ -162,16 +83,7 @@ export default function UserProvider(props) {
                 signup,
                 login,
                 logout,
-                addIssue,
-                deleteIssue,
-                issueList,
-                addComment,
-                deleteComment,
-                setPage,
-                page,
                 resetAuthErr,
-                userErr,
-                setUserErr
             }}>
                 {props.children}
             </UserContext.Provider>

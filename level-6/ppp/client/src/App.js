@@ -2,17 +2,18 @@ import React, { useContext } from 'react'
 import './App.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Nav from './components/Nav'
-import Profile from './components/Profile'
-import Public from './components/Public'
 import Auth from './components/Auth'
+import Profile from './pages/Profile'
+import SingleIssue from './pages/SingleIssue'
 import ProtectedRoute from './components/ProtectedRoute'
+import IssueForm from './pages/IssueForm'
 import { UserContext } from './context/UserProvider'
 
 export default function App() {
   const { token, logout } = useContext(UserContext)
 
   return(
-    <div className='App'>
+    <div className='app'>
       {token && <Nav logout={logout} />}
         <Routes>
           <Route
@@ -28,10 +29,22 @@ export default function App() {
             }
           />
           <Route
-            path="/public"
+            path="/new-issue"
             element={
               <ProtectedRoute token={token} redirectTo={"/"}>
-                <Public />
+                <IssueForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/single-issue/:singleIssueId"
+            element={
+              <ProtectedRoute
+                token={token}
+                redirectTo={"/"}
+                path={"/single-issue"}
+              >
+                <SingleIssue />
               </ProtectedRoute>
             }
           />
