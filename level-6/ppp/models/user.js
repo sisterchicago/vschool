@@ -23,6 +23,10 @@ const userSchema = new Schema({
     issues: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Issue'
+    }],
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
     }]
 })
 

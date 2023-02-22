@@ -6,7 +6,7 @@ export const IssueContext = React.createContext()
 const issueAxios = axios.create()
 
 issueAxios.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token")
     config.headers.Authorization = `Bearer ${token}`
     return config
 })
@@ -14,14 +14,16 @@ issueAxios.interceptors.request.use((config) => {
 export default function IssueProvider(props) {
     const location = useLocation().pathname 
     const initState = {
-        user: JSON.parse(localStorage.getItem('user')) || {},
-        token: localStorage.getItem('token') || "",
+        user: JSON.parse(localStorage.getItem("user")) || {},
+        token: localStorage.getItem("token") || "",
         issues: [
             {
                 _id: "",
                 issue: "",
                 description: "",
                 imgUrl: "",
+                user: "",
+                comments: "",
                 timestamp: "",
                 user: "",
                 starred: false
@@ -85,6 +87,24 @@ export default function IssueProvider(props) {
                     currentIssue: action.value 
                 }
                 break
+            case 'addComment':
+                newState = {
+                    ...state,
+                    currentIssue: {
+                        ...state.currentIssue,
+                        comments: action.value
+                    }
+                }
+                break 
+            case 'removeComment':
+                newState = {
+                    ...state,
+                    currentIssue: {
+                        ...state.currentIssue,
+                        comments: action.value
+                    }
+                }
+                break
             case 'edit':
                 newState = {
                     ...state,
@@ -99,7 +119,7 @@ export default function IssueProvider(props) {
 
     const getUserIssues = useCallback(() => {
         issueAxios
-            .get('/api/issue/user')
+            .get("/api/issue/user")
             .then((res) => {
                 dispatch({ type: 'getIssues', value: res.data })
             })

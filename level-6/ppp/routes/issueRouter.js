@@ -7,7 +7,7 @@ const User = require('../models/user')
 //user, starred, issue
 
 const populateQuery = [
-    { path: "issue", populate: { path: "issue", select: "starred" } },
+    { path: "comments", populate: { path: "author", select: "username" } },
     { path: "user", select: "username" }
 ]
   
@@ -27,7 +27,6 @@ issueRouter.get("/", (req, res, next) => {
 
 // Add new issue
 issueRouter.post("/", (req, res, next) => {
-    console.log(req.body)
     req.body.user = req.auth._id
     const newIssue = new Issue(req.body)
     newIssue.save((err, savedIssue) => {
@@ -101,7 +100,7 @@ issueRouter.put("/:issueId", (req, res, next) => {
 issueRouter.put("/starred/:issueId", (req, res, next) => {
     Issue.findByIdAndUpdate(
         { _id: req.params.issueId },
-        { $set: { starred: true } },
+        { $sort: { starred: 1 } },
         { new: true }
     )
         .populate(populateQuery)
@@ -118,7 +117,7 @@ issueRouter.put("/starred/:issueId", (req, res, next) => {
 issueRouter.put("/removeStarred/:issueId", (req, res, next) => {
     Issue.findByIdAndUpdate(
         { _id: req.params.issueId },
-        { $pull: { starred: false } },
+        { $sort: { starred: 1 } },
         { new: true }
     )
         .populate(populateQuery)

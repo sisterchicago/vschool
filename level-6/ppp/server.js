@@ -16,7 +16,7 @@ app.use(cors({
 }))
 app.use(
     fileUpload({
-        createParentPath: true 
+        createParentPath: true
     })
 )
 app.use(bodyParser.json())
@@ -25,18 +25,25 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'ejs')
 
 mongoose.connect(
-    `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.elkerxq.mongodb.net/ppp?retryWrites=true&w=majority`,
-    () => console.log('Connected to DB')
+    'mongodb://localhost:27017/PPP',
+    () => console.log('Connected to the DB')
 )
-app.use('/uploads', require('./routes/fileUploadRouter'))
+//mongoose.connect(
+//    `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.elkerxq.mongodb.net/protect?retryWrites=true&w=majority`,
+//    () => console.log('Connected to DB')
+//)
+
 
 app.use('/auth', require('./routes/authRouter'))
+console.log(process.env.SECRET)
 app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
 app.use('/api/issue', require('./routes/issueRouter'))
+app.use('/api/comment', require('./routes/commentRouter'))
+app.use('/uploads', require('./routes/fileUploadRouter'))
 
 app.use((err, req, res, next) => {
     console.log(err)
-    if(err.name === 'UnauthorizedError') {
+    if (err.name === 'UnauthorizedError') {
         res.status(err.status)
     }
     return res.send({ errMsg: err.messsage })
