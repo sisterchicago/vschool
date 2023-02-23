@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 // get all posts
 const getAllPosts = async (req, res) => {
     const user_id = req.user._id 
-
+    console.log('got all posts')
     const posts = await Post.find({user_id}).sort({createdAt: -1})
 
     res.status(200).json(posts)
@@ -13,7 +13,7 @@ const getAllPosts = async (req, res) => {
 // get single post
 const getOnePost = async (req, res) => {
     const { id } = req.params 
-
+    console.log('got one post')
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'No post'})
     }
@@ -30,7 +30,7 @@ const getOnePost = async (req, res) => {
 // create new post
 const createPost = async (req, res) => {
     const {title, description} = req.body 
-
+    console.log('created a post')
     let emptyFields = []
 
     if (!title) {
@@ -56,7 +56,7 @@ const createPost = async (req, res) => {
 // delete post
 const deletePost = async (req, res) => {
     const { id } = req.params 
-
+    console.log('deleted a post')
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'Post does not exist'})
     }
@@ -73,7 +73,7 @@ const deletePost = async (req, res) => {
 // update post
 const updatePost = async (req, res) => {
     const { id } = req.params 
-
+    console.log('updated a post')
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'Post does not exist'})
     }
