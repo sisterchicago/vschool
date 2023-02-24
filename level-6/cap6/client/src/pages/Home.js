@@ -8,6 +8,7 @@ import {useAuthContext} from '../hooks/useAuthContext'
 export default function Home() {
     const {posts, dispatch} = usePostContext()
     const {user} = useAuthContext()
+
     
     useEffect(() => {
         const fetchPosts = async () => {
@@ -35,7 +36,7 @@ export default function Home() {
                    <PostDetails key={post._id} post={post} />
                 ))}
             </div>
-            <PostForm />
+            <PostForm />  
         </div>
     )
 }

@@ -70,23 +70,23 @@ const deletePost = async (req, res) => {
     res.status(200).json(post)
 }
 
-// update post
+//update post
 const updatePost = async (req, res) => {
-    const { id } = req.params 
-    console.log('updated a post')
+    const { id } = req.params
+    console.log('req.user', req.user) 
+    console.log('req.body of updated post', req.body)
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({error: 'Post does not exist'})
     }
 
-    const post = await Post.findOneAndUpdate({_id: id}, {...req.body})
+    const post = await Post.findOneAndUpdate({_id: id}, {...req.body}, {returnOriginal: false})
 
     if (!post) {
         return res.status(400).json({error: 'Post does not exist'})
     }
-
+    console.log('post after update:', post)
     res.status(200).json(post)
 }
-
 
 module.exports = {
     getAllPosts,

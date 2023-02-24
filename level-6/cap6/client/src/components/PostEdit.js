@@ -2,15 +2,35 @@ import { useState } from 'react'
 import { usePostContext } from '../hooks/usePostContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 
-export default function PostEdit({ post }) {
-    const { state, dispatch } = usePostContext()
+export default function PostEdit({ post, setEdit }) {
+    const { dispatch } = usePostContext()
     const { user } = useAuthContext()
 
-    const [title, setTitle] = useState('')
-    const [description, setDescription] = useState('')
+    console.log('post in postEdit:', post)
+
+    // const [title, setTitle] = useState('')
+    // const [description, setDescription] = useState('')
     const [error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
-    
+
+    const [editingPost, setEditingPost] = useState({
+        title: post.title,
+        description: post.description,
+        _id: post._id
+    })
+
+    function handleChange(e){
+        console.log('handle change called')
+        const {name, value} = e.target
+        setEditingPost(prevPost => {
+            return {
+                ...prevPost,
+                [name]: value
+            }
+        })
+        console.log('editingPost in handleChange', editingPost)
+    }
+
+    console.log('editingPost state', editingPost)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -20,11 +40,12 @@ export default function PostEdit({ post }) {
             return
         }
 
-        const updatePost = {title, description}
+        const updatedPost = {...editingPost}
+        console.log('updatedPost', updatedPost)
 
-        const response = await fetch('/api/post' + post._id, { 
+        const response = await fetch('/api/post/' + editingPost._id, { 
             method: 'PUT',
-            body: JSON.stringify(updatePost),
+            body: JSON.stringify(updatedPost),
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
@@ -34,16 +55,16 @@ export default function PostEdit({ post }) {
 
         if (!response.ok) {
             setError(json.error)
-            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
-            setTitle( ...state.title )
-            setDescription( ...state.description )
+            // setTitle( ...editing.title )
+            // setDescription( ...state.description )
             setError(null)
-            setEmptyFields([]) 
             console.log('updated post', json)
-            dispatch({type: 'UPDATED_POST', payload: json})
+            setEdit(false)
+            dispatch({type: 'UPDATED_POST', payload: json})   
         }
+
     }
 
     return (
@@ -53,17 +74,17 @@ export default function PostEdit({ post }) {
             <label>Title:</label>
             <input
                 type='text'
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-                className={emptyFields.includes('title') ? 'error' : ''}
+                onChange={(e) => handleChange(e)}
+                value={editingPost.title}
+                name="title"
             />
 
             <label>Description:</label>
             <input
                 type='text'
-                onChange={(e) => setDescription(e.target.value)}
-                value={description}
-                className={emptyFields.includes('description') ? 'error' : ''}
+                onChange={(e) => handleChange(e)}
+                value={editingPost.description}
+                name="description"
             />
 
             <button>Edit Post</button>
