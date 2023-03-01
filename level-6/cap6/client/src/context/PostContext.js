@@ -6,7 +6,7 @@ export const postReducer = (state, action) => {
     switch (action.type) {
         case 'SET_POSTS':
             return {
-                posts: action.payload 
+                posts: action.payload
             }
         case 'CREATE_POST': 
             return {

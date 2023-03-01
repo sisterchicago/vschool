@@ -72,7 +72,7 @@ export default function PostDetails({ post }) {
             <p>{formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}</p>
             {/* <span className='material-symbols-outlined' onClick={handleClick}>delete</span> */}
             <div className="post-control-box">
-                <PostDelete post={{post}} />
+                <PostDelete post={post} />
                 <div className='material-symbols-outlined' onClick={handleEdit} >edit</div>
             </div>
         </div>

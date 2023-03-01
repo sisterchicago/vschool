@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JavaScript Control Structures</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+		<header>
+		<h1>JavaScript Control Structures Practice</h1>
+		<p>Look at the following code segements.  For each one do the following:
+		</p>
+		<ul>
+			<li>Predict the Output</li>
+			<li>Check the Answer</li>
+			<li>Discuss why or why not the answer was what you predicted</li>
+			
+		</ul>
+	</header>
+		<ol>
+	<li><div>	
+			<p><pre>
+var num = input("Enter a number");
+if(num < 50){
+    alert(num + " is under 50");
+}
+else{
+    alert(num + " is above 50");
+}</pre><button id = "btnOne">Check Answer</button></p>
+
+		</div></li>
+
+		<li><div>
+			<p><pre>var num1 = 7;
+var num2 = 7;
+if(num1 = 2){
+    alert("Wait, what was the value of num1?  " + num1 );
+}
+if(num2 == 7){
+    alert("What is the difference between = and ==?");
+}</pre><button id = "btnTwo">Check Answer</button></p>
+
+		</div></li>
+
+		<li><div>
+			<p><pre>
+var num = prompt("Type in a number, try the values 7, 10, 0, and -1");
+if(num == 7){
+    alert("This statement uses several if statements");
+}
+if(num < 10){
+    alert("They are the exact same conditions as the next question");
+}
+if(num > 0){
+    alert("So what is the difference between this, and using an else if structure?")
+}
+else{
+    alert("That was a negative number");
+}</pre><button id = "btnThree">Check Answer</button></p>
+
+		</div></li>
+
+		<li><div>
+			<p><pre>/*Predict what the output will be, then run the code for the following values? 215, 50, 30*/
+var num = prompt("Type in a number, try the values 7, 10, 0, and -1");
+if(num == 7){
+    alert("This statement uses an else if statement");
+}
+else if(num < 10){
+    alert("They are the exact same conditions as the previous question");
+}
+else if(num > 0){
+    alert("So what is the difference between this, and using several if structure?")
+}
+else{
+    alert("That was a negative number");
+}
+</pre><button id = "btnFour">Check Answer</button></p>
+
+		</div></li>
+		<li><div>
+			<p><pre>
+var temp = parseFloat(prompt("Enter tempature: "));
+if(temp > 212){
+	alert("Boiling water");
+}
+else if(temp > 32){
+	alert("Liquid Water");
+}
+else{
+	alert("Ice");
+}</pre><button id = "btnFive">Check Answer</button></p>
+
+		</div></li>
+		<li><div>
+			<p><pre>/*TODO:
+The Wicked roller coaster at Lagoon has a height requirement.  Write a script to determine if Guests may ride.
+Allow the user to enter their height in inches and have the script report back based upon the following:
+Guests May Ride(above 50 inches), must ride in a booster seat(46 to 50 inches) or may not ride. */</pre><button id = "btnSix">Check Answer</button></p>
+
+		</div></li>
+		<li><div>
+			<p><pre>
+/*One side of a triangle cannot be larger than the sum of the two other sides.  
+This example demonstrates the use of the || (or) symbol.  Predict the output with 
+your own inputs, then run the code to see if your prediction was correct.   */
+var sideA = parseFloat(prompt("Enter Side A"));
+var sideB = parseFloat(prompt("Enter Side B"));
+var sideC = parseFloat(prompt("Enter Side C"));
+if(sideA > sideB + sideC || sideB > sideA + sideC || sideC > sideA + sideB){
+	alert("Invalid Triangle");
+}
+else{
+	alert("Valid Triangle");
+}</pre><button id = "btnSeven">Check Answer</button></p>
+
+		</div></li>
+		<li><div>
+			<p><pre>/*In order to graduate with an associates degree in CS, you must have a GPA of 2.7 
+and above and 63 credits.  Use the && (and symbol) to code the script to get this to work.
+Allow the user to enter their gpa and number of credits.  The program will report the following messages
+"Credit Deficient", "Low GPA", "You may graduate"*/</pre><button id = "btnEight">Check Answer</button></p>
+
+		</div></li>
+
+
+		<li><div>
+			<p><pre>var num = 0;
+num++;
+alert("What does ++ do? The number was 0 and now it is " + num);
+
+num += 3;
+alert("What does += do? The number was 1 and now it is " + num);
+
+num -= 2;
+alert("What does -= do? The number was 4 and now it is " + num);
+
+//TODO
+alert("Write a command above to multiply the number by 3 so it ends up being 6: " + num);</pre><button id = "btnNine">Check Answer</button></p>
+
+		</div></li>
+
+		<li><div>
+			<p><pre>var num = parseInt(prompt("Enter an int value:"));
+var div = num - 1;
+while(num % div != 0){
+	div--;
+}
+alert(div + " is the largest divisor of " + num);</pre><button id = "btnTen">Check Answer</button></p>
+		</div></li>
+
+
+		<li><div>
+			<p><pre>var band = prompt("Enter the best band ever");
+while(band != "Aquabats"){
+	band = prompt("Nope, guess again. What is the best band ever");
+}
+alert("Yes, " + band + " is the best band ever");
+</pre><button id = "btnEleven">Check Answer</button></p>
+		</div></li>
+
+
+		<li><div>
+			<p><pre>/*TODO
+Write a script to allow the user to enter a number between 1 and 10.  If the user enters anything else, the program
+should let the user know that was not in the program specifications and allow them to enter again */
+</pre><button id = "btnTwelve">Check Answer</button></p>
+		</div></li>
+
+		<li><div>
+			<p><pre>var num = parseInt(prompt("Enter a number to count to"));
+var sum = 0;
+for(var i = 0; i < num; i++){
+	alert("Count: " + i);
+	sum += i;
+}
+alert("The sum of the numbers is " + sum);</pre><button id = "btnThirteen">Check Answer</button></p>
+		</div></li>
+
+		<li><div>
+			<p><pre>var num = parseInt(prompt("Enter a number to count by:"));
+var sum = 0;
+for(var i = 0; i < 20; i += num){
+	alert("Count: " + i);
+	sum += i;
+}
+alert("The sum of the numbers is " + sum);</pre><button id = "btnFourteen">Check Answer</button></p>
+		</div></li>
+
+		<li><div>
+			<p><pre>for(var i = 10; i >= 0; i-=2){
+	alert("Count: " + i);
+}</pre><button id = "btnFifteen">Check Answer</button></p>
+		</div></li>
+
+		<li><div>
+			<p><pre>var word = prompt("Enter a word");
+for(var i = 0; i < word.length; i++){
+	var letter = word.charAt(i);
+	alert("Char At: " + letter);
+}</pre><button id = "btnSixteen">Check Answer</button></p>
+		</div></li>
+
+
+		<li><div>
+			<p><pre>/*Write a script to allow the user to enter a word, it will show each of the letters in reverse order*/</pre><button id = "btnSeventeen">Check Answer</button></p>
+		</div></li>
+
+		<li><div><p><pre>
+/*Write a script to allow the user to enter a number.  The script will then report back all the even numbers up to that number*/
+				</pre>
+<button id = "btnEighteen">Check Answer</button></p>
+		</div></li>
+
+		<li><div>
+			<p><pre>) {
+var sentence = prompt("Enter a sentence");
+var space = 0;
+for(var i = 0; i < sentence.length; i++){
+	var letter = sentence.charAt(i);
+	if(letter == ' '){
+		space++;
+	}
+}
+alert("There are " + space  + " spaces in " + sentence);</pre><button id = "btnNineteen">Check Answer</button></p>
+		</div></li>
+
+		<li><div>
+		<pre>/*Write a script to allow the user to enter a sentence: the program will report the number of vowels in that sentence */</pre>
+			<button id = "btnTwenty">Calculate Celsius</button>
+		</div></li>
+
+
+		</ol>
+		
+    <script src="script.js"></script>
+  </body>
+</html>
