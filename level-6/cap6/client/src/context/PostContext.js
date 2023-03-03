@@ -16,19 +16,20 @@ export const postReducer = (state, action) => {
             return {
                 posts: state.posts.filter((p) => p._id !== action.payload._id)
             }
-        case 'UPDATE_POST':
-            return {
-                posts: state.posts.map(p => p._id === action.payload.id ? action.payload : p)
+            case 'UPDATE_POST':
+                return {
+                    posts: state.posts.map(p => p._id === action.payload._id ? action.payload : p)
             }
-        default:
-            return state 
-    }
-}
+            default:
+                return state 
+            }
+            
+        }
+        
+    export default function PostContextProvider({children}) {
+        const [state, dispatch] = useReducer(postReducer, {posts: null})
 
-export default function PostContextProvider({children}) {
-    const [state, dispatch] = useReducer(postReducer, {posts: null})
-
-    //dispatch({type: '', payload: [{}, {}]})
+        //dispatch({type: '', payload: [{}, {}]})
 
     return (
         <PostContext.Provider 

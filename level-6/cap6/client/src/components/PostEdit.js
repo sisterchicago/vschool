@@ -42,7 +42,7 @@ export default function PostEdit({ post, setEdit }) {
 
         const updatedPost = {...editingPost}
         console.log('updatedPost', updatedPost)
-
+        
         const response = await fetch('/api/post/' + editingPost._id, { 
             method: 'PUT',
             body: JSON.stringify(updatedPost),
@@ -52,17 +52,18 @@ export default function PostEdit({ post, setEdit }) {
             }
         })
         const json = await response.json()
-
+        
         if (!response.ok) {
             setError(json.error)
         }
         if (response.ok) {
+            
             // setTitle( ...editing.title )
             // setDescription( ...state.description )
             setError(null)
             console.log('updated post', json)
             setEdit(false)
-            dispatch({type: 'UPDATED_POST', payload: json})   
+            dispatch({type: 'UPDATE_POST', payload: json})
         }
 
     }
